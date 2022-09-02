@@ -51,7 +51,12 @@ function Newbeerpage() {
 
     await axios
       .post(apiUrl, body)
-      .then(navigate("/beers").catch((err) => console.log(err)));
+      .then((response) => {
+        console.log(response.status);
+      })
+      .catch((err) => console.log(err));
+
+    navigate("/beers");
 
     setName("");
     setTagline("");
